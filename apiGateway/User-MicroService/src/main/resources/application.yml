@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: USER-MICROSERVICE
+  app:
+    jwtSecret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+    jwtExpirationMs: 600000
+
+
+
+  datasource:
+    hikari:
+      shutdown-timeout: 10s
+    url: jdbc:mysql://localhost/demo
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: Prateek@1998
+    jpa:
+      properties:
+        hibernate:
+          format_sql: true
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+server:
+  port: 8082
+
+eureka:
+  instance:
+    prefer-ip-address: true
+
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka

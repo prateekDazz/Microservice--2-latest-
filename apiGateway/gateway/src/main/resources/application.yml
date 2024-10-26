@@ -1,0 +1,21 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: API_GATEWAY
+
+  cloud:
+    gateway:
+      routes:
+      - id: USER-MICROSERVICE
+        uri:
+          lb://USER-MICROSERVICE
+        predicates:
+        - Path=/users/**
+
+      - id: HOTEL-MICROSERVICE
+        uri:
+          lb://HOTEL-MICROSERVICE
+        predicates:
+        - Path=/hotels/**
